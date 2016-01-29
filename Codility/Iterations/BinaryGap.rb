@@ -3,7 +3,6 @@ def solution(decimal)
   binary = decimal.to_s(2)
   # split binary string into an array of '0's
   zeros = binary.split('1')
-  p zeros
   #check if last bit is a '0'
   if binary[-1, 1] == '0'
     # remove last two elements in the array
