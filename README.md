@@ -1,4 +1,4 @@
-# Algorithms
+# algorithms
 
 The path to becoming a software engineer is the path of problem solving.
 
