@@ -3,7 +3,7 @@ def beer (bottles)
     word = bottle == 1 ? 'bottle' : 'bottles'
     bottle = bottle == 0 ? 'no more' : bottle
     puts "#{(bottle.is_a? String) ? bottle.capitalize : bottle} #{word} of beer on the wall, #{bottle} #{word} of beer."
-    puts "Take one down, pass it around, #{bottle - 1} #{word} of beer on the wall."
+    puts "Take one down, pass it around, #{(bottle.is_a? String) ? bottle : (bottle - 1)} #{word} of beer on the wall."
   end
 end
 
