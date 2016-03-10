@@ -6,8 +6,10 @@
   function beer (bottles) {
     for (var bottle = bottles; bottle > -1; bottle--) {
       var word = (bottle === 1) ? 'bottle' : 'bottles'
-      console.log(`${bottle} ${word} of beer on the wall, ${bottle} ${word} of beer on the wall.`)
-      console.log(`Take one down, pass it around, ${bottle} ${word} of beer on the wall.`)
+      var phrase = (bottle === 0) ? 'Go to the store and buy some more' : 'Take one down, pass it around'
+      bottle = (bottle === 0) ? 'no more' : bottle
+      console.log(`${(typeof bottle === 'string' ? capitalize(bottle) : bottle)} ${word} of beer on the wall, ${bottle} ${word} of beer.`)
+      console.log(`${phrase}, ${bottle} ${word} of beer on the wall.`)
     }
   }
   beer(99)
