@@ -2,7 +2,7 @@ def solution (numbers, rotations)
   unless numbers.empty?
     def rotator (numbers)
       last = numbers.pop
-      return numbers.reverse.push(last).reverse
+      return numbers.unshift(last)
     end
     rotations.times do ||
       numbers = rotator(numbers)
