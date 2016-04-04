@@ -4,6 +4,7 @@ The path to becoming a software engineer is the path of problem solving.
 
 ## Reference
 
+- [Google Code Jam](https://code.google.com/codejam/) -- annual coding challenge organized by Google.
 - [Coderbyte](https://www.coderbyte.com) -- practice coding challenges.
 - [Codility](https://codility.com/programmers/lessons/) -- lessons and challenges on algorithms.
 - [Interview Cake](https://www.interviewcake.com) -- programming interview questions.
