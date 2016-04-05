@@ -4,11 +4,17 @@ Write a function that takes an array of integer values and prints out the number
 
 Input:
 
-> [5, 3, 2, 2, 1, 5, 3, 3]
+> [-2, 5, 3, 2, 2, 1, -2, 5, 3, 3, -5]
 
 Output:
 
+> -5
+
 > 1
+
+> -2
+
+> -2
 
 > 2
 
