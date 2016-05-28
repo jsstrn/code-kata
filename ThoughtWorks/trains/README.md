@@ -26,13 +26,13 @@ Graph: AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
 
 ### Expected Output:
 
-Output #1: 9
-Output #2: 5
-Output #3: 13
-Output #4: 22
-Output #5: NO SUCH ROUTE
-Output #6: 2
-Output #7: 3
-Output #8: 9
-Output #9: 9
-Output #10: 7
+0. Output #1: 9
+0. Output #2: 5
+0. Output #3: 13
+0. Output #4: 22
+0. Output #5: NO SUCH ROUTE
+0. Output #6: 2
+0. Output #7: 3
+0. Output #8: 9
+0. Output #9: 9
+0. Output #10: 7
