@@ -32,10 +32,14 @@ describe('Problem Set 1 - Trains', () => {
   })
   describe('Get the number of different routes between two towns.', () => {
     it('6. trips starting at C and ending at C with a maximum of 3 stops.', () => {
-
+      expect(
+        solution.routesFinder('C', 'C')
+      ).toBe(2)
     })
     it('7. trips starting at A and ending at C with exactly 4 stops.', () => {
-
+      expect(
+        solution.routesFinder('A', 'C')
+      ).toBe(3)
     })
   })
   describe('Get the shortest route between two towns', () => {

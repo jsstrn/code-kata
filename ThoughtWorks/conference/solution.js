@@ -7,7 +7,7 @@ function Talk (title, duration) {
 }
 
 function Track (track) {
-  this.track = track
+  this.title = track
   this.am = []
   this.pm = []
 }
@@ -41,12 +41,23 @@ Solution.prototype.createSchedule = function () {
 
 Solution.prototype.printSchedule = function () {
   this.schedule.forEach((track) => {
-    console.log()
+    let amTime = new Date()
+    amTime.setUTCHours(9, 0, 0)
+    console.log(`Track ${track.title}`)
+    track.am.forEach((talk) => {
+      console.log(`${amTime.getUTCHours()}:${amTime.getUTCMinutes()} ${talk.title} -- ${talk.duration}min`)
+      amTime.setMinutes(amTime.getMinutes() + talk.duration)
+    })
+    console.log('12:00 Lunch')
+    let pmTime = new Date()
+    pmTime.setUTCHours(13, 0, 0)
+    track.pm.forEach((talk) => {
+      console.log(`${pmTime.getUTCHours()}:${pmTime.getUTCMinutes()} ${talk.title} -- ${talk.duration}min`)
+      pmTime.setMinutes(pmTime.getMinutes() + talk.duration)
+    })
   })
 }
 
 const solution = new Solution()
 solution.createSchedule()
-console.log(
-  solution.schedule
-)
+solution.printSchedule()

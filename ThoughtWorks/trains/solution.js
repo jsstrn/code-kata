@@ -1,18 +1,28 @@
 'use strict'
 
+function Edge (start, end, weight) {
+  this.start = start
+  this.end = end
+  this.weight = Number(weight)
+}
+
 function Solution () {
-  this.arr = ['AB5', 'BC4', 'CD8', 'DC8', 'DE6', 'AD5', 'CE2', 'EB3', 'AE7']
-  this.routes = this.arr.map((route) => {
-    return {
-      start: route[0],
-      end: route[1],
-      distance: Number(route[2])
-    }
+  this.nodes = ['A', 'B', 'C', 'D', 'E']
+  this.edges = ['AB5', 'BC4', 'CD8', 'DC8', 'DE6', 'AD5', 'CE2', 'EB3', 'AE7']
+  this.graph = this.edges.map((route) => {
+    return new Edge(route[0], route[1], route[2])
   })
+  this.matrix = [
+    [-1, 5, -1, 5, 7],
+    [-1, -1, 4, -1, -1],
+    [-1, -1, -1, 8, 2],
+    [-1, -1, 8, -1, 6],
+    [-1, 3, -1, -1, -1]
+  ]
 }
 
 Solution.prototype.doesRouteExist = function (start, end) {
-  return this.routes.find(route => route.start === start && route.end === end)
+  return this.graph.find(route => route.start === start && route.end === end)
 }
 
 Solution.prototype.getDistance = function () {
@@ -20,9 +30,9 @@ Solution.prototype.getDistance = function () {
   const stops = arguments.length - 1
   let distance = 0
   for (let i = 0; i < stops; i++) {
-    const routeExists = this.doesRouteExist(stations[i], stations[i + 1])
-    if (routeExists) {
-      distance += routeExists.distance
+    const route = this.doesRouteExist(stations[i], stations[i + 1])
+    if (route) {
+      distance += route.weight
     } else {
       return 'NO SUCH ROUTE'
     }
@@ -31,27 +41,25 @@ Solution.prototype.getDistance = function () {
 }
 
 Solution.prototype.routesStartingAt = function (start) {
-  return this.routes.filter(route => route.start === start)
+  return this.graph.filter(route => route.start === start)
 }
 
 Solution.prototype.routesEndingAt = function (end) {
-  return this.routes.filter(route => route.end === end)
+  return this.graph.filter(route => route.end === end)
 }
 
-Solution.prototype.routesFinder = function (start, end, route) {
-  if (end === route.end) {
-    return route
-  }
-  this.routes.find(route => route.start === start)
-  return this.routesFinder(route.end, end, route)
+Solution.prototype.routesFinder = function (start, end) {
+  const paths = []
+  this.routesStartingAt(start).forEach((route) => {
+    paths.push([route])
+  })
+  return paths
 }
 
 const solution = new Solution()
 
 console.log(
-  solution.routesStartingAt('C'),
-  solution.routesEndingAt('C'),
-  solution.routesFinder(5)
+  // solution.routesFinder('C', 'C')
 )
 
 module.exports = new Solution()
