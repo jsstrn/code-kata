@@ -12,26 +12,45 @@ describe('tests the hotel room reservation app', () => {
     it('should return false for a weekday', () => {
       expect(solution.isWeekend(weekday)).toBe(false)
     })
+    it('should return weekend', () => {
+      expect(solution.getTypeOfDay(weekend)).toBe('weekend')
+    })
+    it('should return weekday', () => {
+      expect(solution.getTypeOfDay(weekday)).toBe('weekday')
+    })
+  })
+  describe('checks if correct hotel object is returned', () => {
+    it('should return Lakewood', () => {
+      expect(solution.getHotelByName('Lakewood').name).toBe('Lakewood')
+      expect(solution.getHotelByName('Bridgewood').name).toBe('Bridgewood')
+      expect(solution.getHotelByName('Ridgewood').name).toBe('Ridgewood')
+    })
+    it('should return Bridgewood', () => {
+      expect(solution.getHotelByName('Bridgewood').name).toBe('Bridgewood')
+    })
+    it('should return Ridgewood', () => {
+      expect(solution.getHotelByName('Ridgewood').name).toBe('Ridgewood')
+    })
   })
   describe('checks if correct rates are returned for a given cutomer type and date', () => {
     it('should return the weekday rates for regular customers', () => {
       expect(
-        solution.getRateFor('Lakewood', 'regular', weekday)
+        solution.getRateForHotel('Lakewood', 'regular', weekday)
       ).toBe(110)
     })
     it('should return the weekday rates for reward customers', () => {
       expect(
-        solution.getRateFor('Ridgewood', 'rewards', weekday)
+        solution.getRateForHotel('Ridgewood', 'rewards', weekday)
       ).toBe(150)
     })
     it('should return the weekend rates for regular customers', () => {
       expect(
-        solution.getRateFor('Lakewood', 'regular', weekend)
+        solution.getRateForHotel('Lakewood', 'regular', weekend)
       ).toBe(80)
     })
     it('should return the weekend rates for rewards customers', () => {
       expect(
-        solution.getRateFor('Bridgewood', 'rewards', weekend)
+        solution.getRateForHotel('Bridgewood', 'rewards', weekend)
       ).toBe(50)
     })
   })
