@@ -1,5 +1,5 @@
 /*globals describe, it, expect*/
-const solution = require('../conference/solution.js')
+const solution = require('../solution')
 
 describe('', () => {
   describe('Track 1', () => {

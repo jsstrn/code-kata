@@ -1,6 +1,6 @@
 /*globals describe, it, expect*/
 
-const solution = require('../trains/solution.js')
+const solution = require('../solution')
 
 describe('Problem Set 1 - Trains', () => {
   describe('Compute the distance along a certain route', () => {
