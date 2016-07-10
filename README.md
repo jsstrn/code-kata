@@ -1,6 +1,6 @@
 # algorithms
 
-## Reference
+## References
 
 - [CodeFights](https://codefights.com/) -- code battles
 - [Coderbyte](https://www.coderbyte.com) -- practice coding challenges
