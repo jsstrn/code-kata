@@ -1,8 +1,13 @@
-/* globals describe it expect */
+/* eslint-env jasmine, es6*/
+/* global Validator */
 
-const validator = require('../validator')
+const Validator = require('../src/validator')
 
-describe('validations', () => {
+describe('validator.js', () => {
+  let validator
+  beforeEach(() => {
+    validator = new Validator(8, 10)
+  })
   describe('number validation', () => {
     it('should return true if character contains a number', () => {
       expect(validator.isNumber(3)).toBe(true)
@@ -39,6 +44,26 @@ describe('validations', () => {
     })
     it('should return false if character is not a symbol', () => {
       expect(validator.isSymbol('a')).toBe(false)
+    })
+  })
+  describe('minimum character validation', () => {
+    it('should return true if string length meets minimum length required', () => {
+      const minimumLengthRequired = 8
+      expect(validator.meetsMinimumLengthRequirement('12345678', minimumLengthRequired)).toBe(true)
+    })
+    it('should return false if string length does not meet minimum length required', () => {
+      const minimumLengthRequired = 8
+      expect(validator.meetsMinimumLengthRequirement('1234567', minimumLengthRequired)).toBe(false)
+    })
+  })
+  describe('maximum character validation', () => {
+    it('should return true if string length meets maximum length allowed', () => {
+      const maximumLengthAllowed = 10
+      expect(validator.meetsMaximumLengthAllowed('1234567890', maximumLengthAllowed)).toBe(true)
+    })
+    it('should return false if string length does not meet maximum length allowed', () => {
+      const maximumLengthAllowed = 10
+      expect(validator.meetsMaximumLengthAllowed('1234567890A', maximumLengthAllowed)).toBe(false)
     })
   })
   describe('output validation', () => {
