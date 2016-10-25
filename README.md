@@ -1,7 +1,9 @@
-# algorithms
+# Kata
 
-## References
+## Resources
 
+- [CodeKata.com](codekata.com) -- the original code katas
+- [CodeKata.org](codekata.org) -- more code katas
 - [CodeFights](https://codefights.com/) -- code battles
 - [Coderbyte](https://www.coderbyte.com) -- practice coding challenges
 - [Codility](https://codility.com/programmers/lessons/) -- lessons and challenges on algorithms
