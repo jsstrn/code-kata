@@ -4,7 +4,7 @@ const Inventory = require('../inventory')
 
 describe('test suite for inventory management system', () => {
   let inventory
-
+inventory.produ
   beforeEach(() => {
     inventory = new Inventory([
       {
