@@ -1,0 +1,22 @@
+{
+  "name": "cs-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .js",
+    "start": "nodemon --exec babel-node index.js",
+    "test": "mocha spec --compilers js:babel-register",
+    "watch": "yarn test -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.2"
+  }
+}
