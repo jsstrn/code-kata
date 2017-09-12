@@ -11,10 +11,6 @@ describe('#canvas', () => {
       canvas = new Canvas(columns, rows)
     })
 
-    afterEach(() => {
-      canvas.print()
-    })
-
     it('has correct number of rows and columns', () => {
       expect(canvas.rows).to.equal(5)
       expect(canvas.cols).to.equal(3)
@@ -65,6 +61,18 @@ describe('#canvas', () => {
         ['⬛️', '⬜️', '⬛️'],
         ['⬛️', '⬛️', '⬛️'],
         ['⬜️', '⬜️', '⬜️'],
+      ])
+    })
+
+    it('fills entire segment of the canvas at specified position and filler', () => {
+      canvas.drawLine(1, 1, 2, 1)
+      canvas.paintSegment(0, 1, '🔶')
+      expect(canvas.tiles).to.deep.equal([
+        ['🔶', '🔶', '🔶'],
+        ['🔶', '⬛️', '⬛️'],
+        ['🔶', '🔶', '🔶'],
+        ['🔶', '🔶', '🔶'],
+        ['🔶', '🔶', '🔶'],
       ])
     })
   })

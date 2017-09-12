@@ -11,13 +11,13 @@ export default class Canvas {
     ))
   }
 
-  drawLine (colStart, rowStart, colEnd, rowEnd, filler = '⬛️') {
-    if (colStart !== colEnd && rowStart !== rowEnd) {
+  drawLine (startPositionAtX, startPositionAtY, endPositionAtX, endPositionAtY, filler = '⬛️') {
+    if (startPositionAtX !== endPositionAtX && startPositionAtY !== endPositionAtY) {
       throw new Error();
     }
     this.tiles.forEach((row, rowIndex) => {
       row.forEach((col, colIndex) => {
-        if (rowIndex >= rowStart && rowIndex <= rowEnd && colIndex >= colStart && colIndex <= colEnd) {
+        if (rowIndex >= startPositionAtY && rowIndex <= endPositionAtY && colIndex >= startPositionAtX && colIndex <= endPositionAtX) {
           this.tiles[rowIndex][colIndex] = filler
         }
       })
@@ -39,12 +39,32 @@ export default class Canvas {
     })
   }
 
+  paintSegment (positionAtX, positionAtY, filler, originalFiller) {
+    if (filler === originalFiller) { return }
+
+    if (positionAtX < 0 || positionAtY < 0 || positionAtX >= this.cols || positionAtY >= this.rows) { return }
+
+    if (originalFiller === undefined) { originalFiller = this.tiles[positionAtY][positionAtX] }
+
+    if (this.tiles[positionAtY][positionAtX] !== originalFiller) { return }
+
+    this.tiles[positionAtY][positionAtX] = filler;
+
+    this.paintSegment(positionAtX - 1, positionAtY - 1, filler, originalFiller)
+    this.paintSegment(positionAtX - 1, positionAtY, filler, originalFiller)
+    this.paintSegment(positionAtX - 1, positionAtY + 1, filler, originalFiller)
+    this.paintSegment(positionAtX, positionAtY - 1, filler, originalFiller)
+    this.paintSegment(positionAtX, positionAtY + 1, filler, originalFiller)
+    this.paintSegment(positionAtX + 1, positionAtY - 1, filler, originalFiller)
+    this.paintSegment(positionAtX + 1, positionAtY, filler, originalFiller)
+    this.paintSegment(positionAtX + 1, positionAtY + 1, filler, originalFiller)
+  }
+
+  display () {
+    return this.tiles.reduce((acc, row) => ( acc + row.join('  ') + '\n' ), '')
+  }
+
   print () {
-    this.tiles.forEach((rows, index) => {
-      console.log(rows.join('  '))
-      if (index === this.tiles.length - 1) {
-        console.log('\n')
-      }
-    })
+    console.log(this.display())
   }
 }
