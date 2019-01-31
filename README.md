@@ -12,4 +12,5 @@
 - [HackerRank](https://www.hackerrank.com/) -- practice programming challenges and exercises
 - [Hyperpolyglot](http://hyperpolyglot.org/) -- a useful programming language reference
 - [Interview Cake](https://www.interviewcake.com) -- programming interview questions
+- [Kata-Log](https://kata-log.rocks/) -- a _katalog_ of katas
 - [LeetCode](https://leetcode.com/) -- a platform for preparing technical coding interviews
